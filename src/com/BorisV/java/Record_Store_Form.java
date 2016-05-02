@@ -20,10 +20,10 @@ public class Record_Store_Form extends JFrame{
     private JLabel picLogoleftside;
     private JComboBox musicGenre_comboBox1;
     private JLabel musicGenreLabel;
-    private JButton saveToListButton1;
+    private JButton consignor_saveToListButton;
     private JLabel newMusicGenreLabel;
     private JTextField newMusicGenre_textField1;
-    private JButton saveToListButton;
+    private JButton genre_saveToListButton;
     private JLabel picLogolrightside;
 
     Record_Store_Form() {
@@ -65,6 +65,29 @@ public class Record_Store_Form extends JFrame{
         selectConsignorComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        consignor_saveToListButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String newConsignor = newConsignorTextField.getText();
+                if (newConsignor == null || newConsignor.trim().equals("")) {
+                    JOptionPane.showMessageDialog(rootPane,"Missing consignor name");
+                    return;
+                }
+                newConsignorTextField.setText(null);
+            }
+        });
+        genre_saveToListButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String newGenre = newMusicGenre_textField1.getText();
+                if (newGenre == null || newGenre.trim().equals("")) {
+                    JOptionPane.showMessageDialog(rootPane,"Missing genre type");
+                    return;
+                }
+                newMusicGenre_textField1.setText(null);
 
             }
         });
