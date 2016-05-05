@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class Record_Store_Form extends JFrame{
+public class Record_Store_GUI extends JFrame{
     private JTextField artistTextField;
     private JTextField titleTextField;
     private JTextField sellingPrice$TextField;
@@ -25,10 +25,14 @@ public class Record_Store_Form extends JFrame{
     private JTextField newMusicGenre_textField1;
     private JButton genre_saveToListButton;
     private JLabel picLogolrightside;
+    private JButton button1;
 
-    Record_Store_Form() {
+    Record_Store_GUI() {
 
         super("RECORD STORE APPLICATION");
+
+        //file saved with information about genre
+//        consignorNames = FileIO.getConsignorName();
 
         setContentPane(rootPanel);
         pack();
@@ -36,6 +40,10 @@ public class Record_Store_Form extends JFrame{
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         picLogoleftside.setIcon(new ImageIcon("src/Pictures/Record-Player-icon.png"));
         picLogolrightside.setIcon(new ImageIcon("src/Pictures/Record-Player-icon.png"));
+
+        //Add music genre to JComboBox, consignors JComboBox
+        DefaultComboBoxModel<String> categoryComboModel;
+
 
         addToFileButton.addActionListener(new ActionListener() {
             @Override
@@ -91,5 +99,15 @@ public class Record_Store_Form extends JFrame{
 
             }
         });
+    }
+
+    public void setData(Thrift_Store_GUI data) {
+    }
+
+    public void getData(Thrift_Store_GUI data) {
+    }
+
+    public boolean isModified(Thrift_Store_GUI data) {
+        return false;
     }
 }
