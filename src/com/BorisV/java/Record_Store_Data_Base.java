@@ -7,7 +7,7 @@ public class Record_Store_Data_Base extends Consignors_Model{
     private static String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     private static String DB_CONNECTION_URL = "jdbc:mysql://localhost:3306/";
     private static final String USER = "root";
-    private static final String PASS = "primero";
+    private static final String PASS = "primero13";
 
 
     private static final String DB_NAME = "recordStoreData";

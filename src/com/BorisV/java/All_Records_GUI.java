@@ -10,13 +10,15 @@ import java.awt.event.ActionListener;
 public class All_Records_GUI extends JFrame {
     private JPanel rootPanel;
     private JTable albumsTable;
-    private JTextArea textArea1;
     private JButton addAlbumsButton;
     private JButton deleteButton;
     private JButton consignorsButton;
+    private JButton removeAsSoldButton;
+    private JList list1;
+    private JTextField showTextField;
 
     private static Add_New_AlbumsGUI record_store_gui;
-    private static ConsignorsGUI consignorTableGUI;
+    private static Add_New_Consignor_GUI add_new_consignor_gui;
 
     public All_Records_GUI(final Record_Store_Data_Model recordStore_data_model, Consignors_Model consignors_model) {
         setLocation(200, 150);
@@ -34,9 +36,6 @@ public class All_Records_GUI extends JFrame {
         albumsTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 //        albumsTable.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
-//        textArea1.setText(String.valueOf(consignors_model.getColumnCount()));
-//        textArea1.setText(String.valueOf(consignors_model.getValueAt(0, 2)));
-//        textArea1.setText(String.valueOf(recordStore_data_model.getValueAt(0, 3)));
 
         addAlbumsButton.addActionListener(new ActionListener() {
             @Override
@@ -54,13 +53,13 @@ public class All_Records_GUI extends JFrame {
             }
             if (JOptionPane.OK_OPTION == JOptionPane.showConfirmDialog(All_Records_GUI.this,
                     "Are you sure?", "Delete", JOptionPane.OK_CANCEL_OPTION)) {
-                boolean deleted = recordStore_data_model.deleteRow(currentRow);
+                boolean deleted = recordStore_data_model.deleteRowRecordSt(currentRow);
                 if (deleted) {
                     Record_Store_Data_Base.loadTables();
-                    textArea1.setText("Album Removed = " + String.valueOf(deleted));
+                    showTextField.setText("Album Deleted");
 
                 } else {
-                    JOptionPane.showMessageDialog(rootPane, "Error removing album");
+                    JOptionPane.showMessageDialog(rootPane, "Error deleting album");
                 }
             }
         });
@@ -69,8 +68,7 @@ public class All_Records_GUI extends JFrame {
         consignorsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                consignorTableGUI = new ConsignorsGUI(consignors_model);
+                new ConsignorsGUI(consignors_model);
 
             }
         });
@@ -78,23 +76,6 @@ public class All_Records_GUI extends JFrame {
 }
 
 
-/*
-        textArea1.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-//                albumsTable.getSelectedColumn();
-                albumsTable.getCellSelectionEnabled();
-                albumsTable.getAccessibleContext();
-
-                textArea1.setText(albumsTable.getToolTipText());
-
-            }
-
-        });
-        albumsTable.clearSelection();
-    }
-*/
 
 
 

@@ -11,8 +11,8 @@ public class Add_New_AlbumsGUI extends JFrame {
     private JLabel picLogoleftside;
     private JTextField priceTextField;
     private JButton addAlbumButton;
-    private JComboBox <Integer> consignorIDComboBox;
     private JButton addNewConsignorButton;
+    private JTextField consignorIDTextField;
 
     Consignors_Model consig_Model;
 
@@ -21,17 +21,11 @@ public class Add_New_AlbumsGUI extends JFrame {
         setTitle("Add albums");
         pack();
         setLocation(350, 200);
-        setSize(300, 250);
+        setSize(400, 400);
         setVisible(true);
 
-        picLogoleftside.setIcon(new ImageIcon("src/Pictures/Record-Player-icon.png"));
 
-        consignorIDComboBox.addItem(null);
-        int consignor = 0;
-        consig_Model.getColumnCount();
 
-        
-//        SELECT Description, ListPrice, Color FROM Product ORDER BY ListPrice DESC;
 
 
 
@@ -49,6 +43,24 @@ public class Add_New_AlbumsGUI extends JFrame {
                     JOptionPane.showMessageDialog(rootPane, "Missing title");
                     return;
                 }
+
+                int consignor;
+
+                try {
+                    consignor = Integer.parseInt(consignorIDTextField.getText());
+                    if (consignor > 0) {
+                        throw new NumberFormatException("Enter numeric value greater than 0");
+                    }
+                } catch (NumberFormatException ne) {
+                    JOptionPane.showMessageDialog(rootPane,"Enter zero");
+                    consignorIDTextField.setText(null);
+                    return;
+
+                }
+
+
+
+
 
 
                 double price;
@@ -70,6 +82,7 @@ public class Add_New_AlbumsGUI extends JFrame {
                     JOptionPane.showMessageDialog(rootPane, "Error adding new data");
                 }
 
+                consignorIDTextField.setText(null);
                 artistTextField.setText(null);
                 titleTextField.setText(null);
                 priceTextField.setText(null);
