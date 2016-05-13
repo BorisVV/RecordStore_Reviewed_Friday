@@ -29,6 +29,7 @@ public class Record_Store_Data_Model  extends AbstractTableModel {
 
     }
 
+
     public void update_ResultSet(ResultSet new_ResultSet) {
         resultSetRec = new_ResultSet;
         sepUp();
@@ -137,6 +138,12 @@ public class Record_Store_Data_Model  extends AbstractTableModel {
             e.printStackTrace();
         }
 
+    }
+
+    private static Record_Store_Data_Base rSDB;
+
+    public String toString() {
+        return (rSDB.ARTIST_NAME + "/" +rSDB.ALBUM_NAME + "/" +rSDB.CONSIGNOR_ID + "/" +rSDB.PRICE );
     }
 
 }

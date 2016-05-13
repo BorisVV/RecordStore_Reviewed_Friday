@@ -10,8 +10,11 @@ public class Add_New_AlbumsGUI extends JFrame {
     private JPanel rootPanel;
     private JTextField priceTextField;
     private JButton addAlbumButton;
-  
     private JLabel picLabel;
+    private JLabel addedTextJLabel;
+    private JLabel addTextJlabel2;
+
+    Record_Store_Data_Base newId;
 
     public Add_New_AlbumsGUI(final Record_Store_Data_Model record_store_data_model, Consignors_Model consignors_model) {
         setContentPane(rootPanel);
@@ -19,7 +22,7 @@ public class Add_New_AlbumsGUI extends JFrame {
         pack();
 
         setLocation(350, 200);
-        setSize(400, 300);
+        setSize(600, 300);
         setVisible(true);
 
         picLabel.setIcon(new ImageIcon("src/Pictures/Record-Player-icon-72.png"));
@@ -28,6 +31,7 @@ public class Add_New_AlbumsGUI extends JFrame {
         addAlbumButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 String artist = artistTextField.getText();
                 if (artist == null || artist.trim().equals("")) {
                     JOptionPane.showMessageDialog(rootPane, "Enter name");
@@ -58,9 +62,14 @@ public class Add_New_AlbumsGUI extends JFrame {
                 }
 
                 boolean insertRow = record_store_data_model.insertRow(artist, title, consignor, price);
+                if (insertRow) {
+                    addedTextJLabel.setText("Album added = ");
+                    addTextJlabel2.setText("newID, " + artist + ", " + title + ", " + consignor + ", $" + price);
+                }
                 if (!insertRow) {
                     JOptionPane.showMessageDialog(rootPane, "Error adding new data");
                 }
+
 
                 artistTextField.setText(null);
                 titleTextField.setText(null);

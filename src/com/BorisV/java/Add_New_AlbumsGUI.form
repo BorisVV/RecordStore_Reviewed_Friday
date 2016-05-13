@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.BorisV.java.Add_New_AlbumsGUI">
-  <grid id="27dc6" binding="rootPanel" layout-manager="GridLayoutManager" row-count="7" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="rootPanel" layout-manager="GridLayoutManager" row-count="9" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="500" height="400"/>
     </constraints>
-    <properties/>
+    <properties>
+      <enabled value="false"/>
+      <font/>
+    </properties>
     <border type="none"/>
     <children>
       <component id="91871" class="javax.swing.JTextField" binding="priceTextField">
@@ -92,7 +95,7 @@
       </vspacer>
       <vspacer id="7f005">
         <constraints>
-          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
       <component id="95771" class="javax.swing.JLabel" binding="picLabel">
@@ -109,6 +112,24 @@
         </constraints>
         <properties>
           <text value=" is set it to zero, change it on the table itself"/>
+        </properties>
+      </component>
+      <component id="4b1eb" class="javax.swing.JLabel" binding="addedTextJLabel">
+        <constraints>
+          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="AR JULIAN"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="b1d51" class="javax.swing.JLabel" binding="addTextJlabel2">
+        <constraints>
+          <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="AR JULIAN"/>
+          <text value=""/>
         </properties>
       </component>
     </children>

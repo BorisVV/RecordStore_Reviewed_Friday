@@ -2,6 +2,7 @@ package com.BorisV.java;
 
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,6 +11,7 @@ public class Add_New_Consignor_GUI extends JFrame{
     private JTextField nameTextField;
     private JTextField phoneTextField;
     private JButton saveButton;
+    private JLabel consigSaved;
 
     public Add_New_Consignor_GUI(final Consignors_Model consignors_model) {
         setContentPane(rootPanel);
@@ -18,7 +20,6 @@ public class Add_New_Consignor_GUI extends JFrame{
         setLocation(350, 200);
         setSize(400, 400);
         setVisible(true);
-
 
 
         saveButton.addActionListener(new ActionListener() {
@@ -37,15 +38,18 @@ public class Add_New_Consignor_GUI extends JFrame{
                 }
 
                 boolean insertRow = consignors_model.insertRowCons(name, phone);
+
                 if (!insertRow) {
                     JOptionPane.showMessageDialog(rootPane, "Error adding new data");
                 }
+                consigSaved.setText("Consignor saved to Consignor's Table!");
 
                 nameTextField.setText(null);
                 phoneTextField.setText(null);
 
             }
         });
+
     }
 
 

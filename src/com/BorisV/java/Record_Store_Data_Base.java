@@ -237,4 +237,8 @@ public class Record_Store_Data_Base extends Consignors_Model{
         }
     }
 
+    public String toString() {
+        return (ARTIST_NAME + "/" + ALBUM_NAME+ "/" + CONSIGNOR_ID + "/" + PRICE);
+    }
+
 }

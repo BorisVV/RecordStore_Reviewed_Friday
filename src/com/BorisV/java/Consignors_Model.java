@@ -108,6 +108,19 @@ public class Consignors_Model extends AbstractTableModel {
         }
     }
 
+    public boolean deleteRowConsig(int rowCons){
+        try {
+            resultSetCon.absolute(rowCons + 1);
+            resultSetCon.deleteRow();
+            fireTableDataChanged();
+            return true;
+        }catch (SQLException se) {
+            System.out.println("Delete row error " + se);
+            return false;
+        }
+    }
+
+
 
 
 }
