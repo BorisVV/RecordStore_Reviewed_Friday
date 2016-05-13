@@ -223,7 +223,6 @@ public class Record_Store_Data_Base extends Consignors_Model{
                 System.out.println("Statement closed");
             }
         } catch (SQLException se){
-            //Closing the connection could throw an exception too
             se.printStackTrace();
         }
 

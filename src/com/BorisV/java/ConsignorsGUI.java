@@ -13,6 +13,8 @@ public class ConsignorsGUI extends JFrame {
     private JPanel rootPanel;
 
     Consignors_Model consignors_model;
+    Add_New_Consignor_GUI add_new_consignor_gui;
+
     public ConsignorsGUI(Consignors_Model consignors_model) {
         setContentPane(rootPanel);
         pack();
@@ -27,7 +29,7 @@ public class ConsignorsGUI extends JFrame {
         addNewConsignorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                add_new_consignor_gui = new Add_New_Consignor_GUI(consignors_model);
             }
         });
 

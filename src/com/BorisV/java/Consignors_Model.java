@@ -92,6 +92,22 @@ public class Consignors_Model extends AbstractTableModel {
 
     }
 
+    public boolean insertRowCons(String name, String phone) {
+        try{
+            resultSetCon.moveToInsertRow();
+            resultSetCon.updateString(Record_Store_Data_Base.CONSIGNOR_NAME, name);
+            resultSetCon.updateString(Record_Store_Data_Base.CONSIGNOR_PHONE, phone);
+            resultSetCon.insertRow();
+            resultSetCon.moveToCurrentRow();
+            fireTableDataChanged();
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
 
 }

@@ -40,7 +40,7 @@ public class All_Records_GUI extends JFrame {
         addAlbumsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                record_store_gui = new Add_New_AlbumsGUI(recordStore_data_model);
+                record_store_gui = new Add_New_AlbumsGUI(recordStore_data_model, null);
             }
         });
 

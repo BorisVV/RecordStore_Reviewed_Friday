@@ -8,25 +8,21 @@ public class Add_New_AlbumsGUI extends JFrame {
     private JTextField artistTextField;
     private JTextField titleTextField;
     private JPanel rootPanel;
-    private JLabel picLogoleftside;
     private JTextField priceTextField;
     private JButton addAlbumButton;
-    private JButton addNewConsignorButton;
-    private JTextField consignorIDTextField;
+  
+    private JLabel picLabel;
 
-    Consignors_Model consig_Model;
-
-    public Add_New_AlbumsGUI(final Record_Store_Data_Model record_store_data_model) {
+    public Add_New_AlbumsGUI(final Record_Store_Data_Model record_store_data_model, Consignors_Model consignors_model) {
         setContentPane(rootPanel);
         setTitle("Add albums");
         pack();
+
         setLocation(350, 200);
-        setSize(400, 400);
+        setSize(400, 300);
         setVisible(true);
 
-
-
-
+        picLabel.setIcon(new ImageIcon("src/Pictures/Record-Player-icon-72.png"));
 
 
         addAlbumButton.addActionListener(new ActionListener() {
@@ -44,23 +40,7 @@ public class Add_New_AlbumsGUI extends JFrame {
                     return;
                 }
 
-                int consignor;
-
-                try {
-                    consignor = Integer.parseInt(consignorIDTextField.getText());
-                    if (consignor > 0) {
-                        throw new NumberFormatException("Enter numeric value greater than 0");
-                    }
-                } catch (NumberFormatException ne) {
-                    JOptionPane.showMessageDialog(rootPane,"Enter zero");
-                    consignorIDTextField.setText(null);
-                    return;
-
-                }
-
-
-
-
+                int consignor = 0;
 
 
                 double price;
@@ -82,7 +62,6 @@ public class Add_New_AlbumsGUI extends JFrame {
                     JOptionPane.showMessageDialog(rootPane, "Error adding new data");
                 }
 
-                consignorIDTextField.setText(null);
                 artistTextField.setText(null);
                 titleTextField.setText(null);
                 priceTextField.setText(null);
