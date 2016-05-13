@@ -29,7 +29,6 @@ public class Record_Store_Data_Model  extends AbstractTableModel {
 
     }
 
-
     public void update_ResultSet(ResultSet new_ResultSet) {
         resultSetRec = new_ResultSet;
         sepUp();

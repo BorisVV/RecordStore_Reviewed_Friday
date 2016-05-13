@@ -1,8 +1,6 @@
 package com.BorisV.java;
 
 
-import javafx.scene.control.SelectionModel;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -30,8 +28,6 @@ public class ConsignorsGUI extends JFrame {
         consignorTable.setGridColor(Color.black);
         consignorTable.setModel(consignors_model);
 
-        consignorTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
         addNewConsignorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -45,23 +41,24 @@ public class ConsignorsGUI extends JFrame {
                 int currentRow = consignorTable.getSelectedRow();
 
                 if (currentRow == -1) {      // -1 means no row is selected. Display error message.
-                    JOptionPane.showMessageDialog(rootPane, "Please choose a Consignor to delete");
+                    JOptionPane.showMessageDialog(rootPane, "Please choose an album to delete");
                     return;
                 }
 
 
                 if (JOptionPane.OK_OPTION == JOptionPane.showConfirmDialog(ConsignorsGUI.this,
                         "Are you sure?", "Delete", JOptionPane.OK_CANCEL_OPTION)) {
-                    boolean deleted = consignors_model.deleteRowConsig(currentRow);
+                    boolean deleted = consignors_model.deleteRowCons(currentRow);
 
                     if (deleted) {
                         Record_Store_Data_Base.loadTables();
-                        massageDel.setText("Consignor deleted");
+                        massageDel.setText("Consignor Deleted ");
 
                     } else {
-                        JOptionPane.showMessageDialog(rootPane, "Error deleting consignor");
+                        JOptionPane.showMessageDialog(rootPane, "Error deleting album");
                     }
                 }
+
             }
         });
 

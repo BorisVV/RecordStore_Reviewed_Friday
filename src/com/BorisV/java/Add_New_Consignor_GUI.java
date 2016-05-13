@@ -14,12 +14,14 @@ public class Add_New_Consignor_GUI extends JFrame{
     private JLabel consigSaved;
 
     public Add_New_Consignor_GUI(final Consignors_Model consignors_model) {
+        setBackground(Color.green);
         setContentPane(rootPanel);
         setTitle("Add consignor");
         pack();
         setLocation(350, 200);
         setSize(400, 400);
         setVisible(true);
+
 
 
         saveButton.addActionListener(new ActionListener() {

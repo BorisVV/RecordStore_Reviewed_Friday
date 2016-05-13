@@ -28,6 +28,19 @@ public class Consignors_Model extends AbstractTableModel {
 
     }
 
+    public boolean deleteRowCons(int rowCons){
+        try {
+            resultSetCon.absolute(rowCons + 1);
+            resultSetCon.deleteRow();
+            fireTableDataChanged();
+            return true;
+        }catch (SQLException se) {
+            System.out.println("Delete row error " + se);
+            return false;
+        }
+    }
+
+
 
 
 
@@ -90,6 +103,22 @@ public class Consignors_Model extends AbstractTableModel {
         resultSetCon = rsConsignors;
         sepUp();
 
+    }
+
+    public boolean insertRowCons(String name, String phone) {
+        try{
+            resultSetCon.moveToInsertRow();
+            resultSetCon.updateString(Record_Store_Data_Base.CONSIGNOR_NAME, name);
+            resultSetCon.updateString(Record_Store_Data_Base.CONSIGNOR_PHONE, phone);
+            resultSetCon.insertRow();
+            resultSetCon.moveToCurrentRow();
+            fireTableDataChanged();
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
 
